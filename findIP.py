@@ -22,6 +22,8 @@ def swichCamera(previousCam, newCam):
 	#first launch the new cam
 	subprocess.call("adb -s " + brand_to_ip(newCam) + ":5555 shell \"input keyevent 25 && sleep 1 && exit\"",shell=True)
 	subprocess.call("adb -s  " + brand_to_ip(previousCam) + ":5555 shell \"input keyevent 25 && exit\"",shell=True)
+	#density = subprocess.call("adb -s  " + brand_to_ip(newCam) + ":5555 shell \"wm size\"",shell=True)
+	print(density[-8:])
 #subprocess.call("input keyevent 25",shell=True)
 #adb tcpip 5555 adb connect 192.168.0.24 adb shell input keyevent 25
 
@@ -47,3 +49,14 @@ while True:
 		swichCamera(previousCam, newCam)
 
 window.close()
+
+# MacBook-Pro-de-francois-2:~ racinecubix$ adb -s  192.168.0.28:5555 shell wm size
+# Physical size: 720x1280
+# MacBook-Pro-de-francois-2:~ racinecubix$ adb -s  192.168.0.16:5555 shell wm size 
+# Physical size: 720x1280
+# MacBook-Pro-de-francois-2:~ racinecubix$ adb -s  192.168.0.24:5555 shell wm size 
+# Physical size: 1080x1920
+# Override size: 2160x3840
+# MacBook-Pro-de-francois-2:~ racinecubix$ adb -s  192.168.0.34:5555 shell wm size 
+# Physical size: 1440x2560
+# MacBook-Pro-de-francois-2:~ racinecubix$ 
