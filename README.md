@@ -9,8 +9,6 @@ What do you need:
 adb -d tcpip 5555                         #enable adb through wifi   
 adb -d shell ip -f inet addr show wlan0   #get Ip Adress  
 adb connect 192.168.0.24                  #use the ip you've got from last command line  
-adb -s 192.168.0.24 shell                 #open adb shell  
-input keyevent 25                         #virtually press volume down button  
 
 #what findIp does:  
 adb -s 192.168.0.24 shell                 #open adb shell  
