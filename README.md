@@ -4,16 +4,21 @@ What do you need:
 -larix broadcast and usb debugging enabled on every phone  
 -one computer with adb shell  
  To enable usb debugging, 10 tap on parameter about phone baseband, then developper option enable usb debugging.  
-(ps for multiple phone, type "adb devices" then copy deviceId, then add "-e deviceId" after "adb" e.g. "adb -s 192.168.0.16:5555 shell"or if physically connected: "adb -d shell")  
-adb -d tcpip 5555                         #enable adb through wifi  
-#adb -d kill-server                       #if it's not working  
+
+#Basically, what manualIp does is to happen Ip adress of every wired phone. Then make adb shell wireless:  
+adb -d tcpip 5555                         #enable adb through wifi   
 adb -d shell ip -f inet addr show wlan0   #get Ip Adress  
 adb connect 192.168.0.24                  #use the ip you've got from last command line  
 adb -s 192.168.0.24 shell                 #open adb shell  
 input keyevent 25                         #virtually press volume down button  
 
+#what findIp does:  
+adb -s 192.168.0.24 shell                 #open adb shell  
+input keyevent 25                         #virtually press volume down button  
 
-The last line activates the volume down button. So in order to switch camera, you first activate "input keyevent 25"(start recording) on the second camera, you have two stream to youtube with the same keys. youtube will continue to show the oldest one. Then on the first(oldest) camera you "input keyevent 25" (stop recording)
+To activates the volume down button, there is a graphical Python called findIp.py. So in order to switch camera, you first activate "input keyevent 25"(start recording) on the second camera, you have two stream to youtube with the same keys. youtube will continue to show the oldest one. Then on the first(oldest) camera you "input keyevent 25" (stop recording)
+
+
 
 instructions described in this video  
 https://youtu.be/HVNFL1jNtog?t=74  
