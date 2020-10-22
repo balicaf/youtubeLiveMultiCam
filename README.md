@@ -9,7 +9,7 @@ adb -d tcpip 5555                         #enable adb through wifi
 #adb -d kill-server                       #if it's not working  
 adb -d shell ip -f inet addr show wlan0   #get Ip Adress  
 adb connect 192.168.0.24                  #use the ip you've got from last command line  
-adb shell -s 192.168.0.24                 #open adb shell  
+adb -s 192.168.0.24 shell                 #open adb shell  
 input keyevent 25                         #virtually press volume down button  
 
 
